@@ -1,43 +1,160 @@
-# OpenAI_Assistant_API_Boilerplate
+# Email Assistant
 
-Super simple boilerplate for using the OpenAI Assistant API + Cursor Rules for you to start building personal AI Agents
+An AI-powered email assistant using OpenAI's Assistant API with Gmail and Google Calendar integration. This intelligent assistant can help you manage emails, schedule meetings, and perform various email-related tasks through natural language commands.
 
-## How to use
+## 🚀 Features
 
-1. Clone the repository:
+- **Email Management**: Read, compose, and manage Gmail messages
+- **Calendar Integration**: Schedule meetings and manage Google Calendar events
+- **File Operations**: Read and write files on your system
+- **Rich Terminal Interface**: Beautiful, user-friendly command-line interface
+- **Conversation Memory**: Remembers your conversation history until you reset
+- **Tool Integration**: Extensible tool system for adding new capabilities
+
+## 📋 Prerequisites
+
+- Python 3.8 or higher
+- OpenAI API key
+- Google Cloud Project with Gmail API enabled
+- Google OAuth2 credentials
+
+## 🛠️ Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/romellrandal/email-assistant.git
+   cd email-assistant
    ```
-   git clone https://github.com/ali-abassi/OpenAI_Assistant_API_Boilerplate.git
-   ```
 
-2. Change `.SAMPLEenv` to `.env` and add your API keys:
-   - Open the `.env` file
-   - Add your OpenAI API Key
-   - Add your Assistant ID
-
-3. Install the required packages:
-   ```
+2. **Install dependencies:**
+   ```bash
    pip install -r requirements.txt
    ```
 
-4. Run the script:
+3. **Set up environment variables:**
+   ```bash
+   cp .env.example .env
    ```
+   
+   Edit `.env` and add your credentials:
+   ```env
+   OPENAI_API_KEY=your_openai_api_key_here
+   ASSISTANT_ID=your_assistant_id_here
+   ```
+
+## 🔐 Google API Setup
+
+### 1. Create Google Cloud Project
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select existing one
+3. Enable Gmail API and Google Calendar API
+
+### 2. Create OAuth2 Credentials
+1. Go to "APIs & Services" > "Credentials"
+2. Click "Create Credentials" > "OAuth 2.0 Client IDs"
+3. Download the credentials JSON file
+4. Rename it to `Credentials.json` and place it in the project root
+
+### 3. First Run Setup
+On first run, the application will:
+- Open a browser window for Google OAuth authentication
+- Save the authentication token for future use
+
+## 🚀 Usage
+
+1. **Start the assistant:**
+   ```bash
    python main.py
    ```
 
-5. Start chatting with your personal assistant!
+2. **Available commands:**
+   - `reset` - Start a new conversation
+   - `quit` - Exit the program
+   - `update` - Update assistant configuration
 
-6. Use the cursor composer to start adding your own tools along with documentation details from the apis you want to use. Use the attached `AddTools_CursorInstructions.md` to help you.
+3. **Example interactions:**
+   ```
+   You: What was the last email I received?
+   You: Schedule a meeting with John tomorrow at 2 PM
+   You: Read my unread emails from this week
+   You: Compose a reply to the latest email
+   ```
 
-## Features
+## 🛠️ Available Tools
 
-- OpenAI Assistant API integration
-- File operations (read/write)
-- Rich terminal interface
-- Conversation persistence so it recalls your prior convos until you tell it to 'reset'
+### Email Tools
+- Read emails (inbox, sent, drafts)
+- Compose and send emails
+- Search emails by criteria
+- Mark emails as read/unread
+- Move emails between folders
 
-# Gmail Assistant
+### Calendar Tools
+- Schedule meetings and events
+- View calendar events
+- Update existing events
+- Delete calendar events
+- Check availability
 
-## Setup Instructions
+### File Tools
+- Read text files
+- Write content to files
+- List directory contents
 
-### 1. Environment Variables
-Copy the example environment file and add your credentials:
+## 🔧 Configuration
+
+### Environment Variables
+- `OPENAI_API_KEY`: Your OpenAI API key
+- `ASSISTANT_ID`: Your OpenAI Assistant ID (auto-generated on first run)
+
+### Google API Files
+- `Credentials.json`: Google OAuth2 credentials (excluded from Git)
+- `token.pickle`: OAuth2 token cache (excluded from Git)
+
+## 📁 Project Structure
+
+```
+email-assistant/
+├── main.py                 # Main application entry point
+├── prompts.py              # Assistant instructions and prompts
+├── terminalstyle.py        # Terminal UI styling
+├── tools/                  # Tool implementations
+│   ├── gmail_tools.py     # Gmail API integration
+│   ├── calendar_tools.py  # Google Calendar integration
+│   ├── file_tools.py      # File system operations
+│   └── tool_handler.py    # Tool execution handler
+├── requirements.txt        # Python dependencies
+├── .env.example           # Environment variables template
+└── README.md              # This file
+```
+
+## 🔒 Security
+
+Sensitive files are automatically excluded from Git:
+- `.env` - Contains API keys
+- `Credentials.json` - Google API credentials
+- `token.pickle` - OAuth2 tokens
+- `thread_id.txt` - Conversation thread IDs
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🆘 Support
+
+If you encounter any issues:
+1. Check that all environment variables are set correctly
+2. Ensure Google API credentials are properly configured
+3. Verify that required APIs are enabled in Google Cloud Console
+4. Check the console output for error messages
+
+---
+
+**Built with ❤️ using OpenAI Assistant API and Google APIs**
