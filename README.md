@@ -82,24 +82,25 @@ On first run, the application will:
 
 ## 🛠️ Available Tools
 
-### Email Tools
-- Read emails (inbox, sent, drafts)
-- Compose and send emails
-- Search emails by criteria
-- Mark emails as read/unread
-- Move emails between folders
+### 📧 Email Tools
+- **`list_emails`** - List emails from Gmail inbox with optional search query
+- **`send_email`** - Send an email using Gmail API to a specific recipient
+- **`read_email`** - Read a specific email by its ID, including attachments
+- **`delete_email`** - Delete (move to trash) a specific email by its ID
 
-### Calendar Tools
-- Schedule meetings and events
-- View calendar events
-- Update existing events
-- Delete calendar events
-- Check availability
+### 📅 Calendar Tools
+- **`list_calendars`** - List all calendars accessible to the user
+- **`list_events`** - List events from a calendar with optional time range and search query
+- **`create_event`** - Create a new calendar event in Google Calendar
+- **`update_event`** - Update an existing calendar event
+- **`delete_event`** - Delete a calendar event
+- **`get_event`** - Get details of a specific calendar event
+- **`create_calendar`** - Create a new secondary calendar
+- **`delete_calendar`** - Delete a secondary calendar
 
-### File Tools
-- Read text files
-- Write content to files
-- List directory contents
+### 📁 File Tools
+- **`read_file`** - Read the contents of a file from the working directory
+- **`write_file`** - Write content to a file in the working directory
 
 ## 🔧 Configuration
 
@@ -122,6 +123,7 @@ email-assistant/
 │   ├── gmail_tools.py     # Gmail API integration
 │   ├── calendar_tools.py  # Google Calendar integration
 │   ├── file_tools.py      # File system operations
+│   ├── tool_definitions.py # Tool definitions for OpenAI
 │   └── tool_handler.py    # Tool execution handler
 ├── requirements.txt        # Python dependencies
 ├── .env.example           # Environment variables template

@@ -47,7 +47,7 @@ def get_tool_definitions():
             "type": "function",
             "function": {
                 "name": "list_emails",
-                "description": "List emails from Gmail inbox with optional search query",
+                "description": "List emails from Gmail inbox with optional search query. Use this ONLY when the user asks to read, check, or list their email messages. Do NOT use this for calendar events.",
                 "parameters": {
                     "type": "object",
                     "properties": {
@@ -70,7 +70,7 @@ def get_tool_definitions():
             "type": "function",
             "function": {
                 "name": "send_email",
-                "description": "Send an email using Gmail API. Use this when the user asks to send an email message to someone. Do NOT use this for calendar events - use create_event instead.",
+                "description": "Send an email using Gmail API. Use this ONLY when the user explicitly asks to send an email message to someone. NEVER use this for calendar events, meetings, or appointments - use create_event instead.",
                 "parameters": {
                     "type": "object",
                     "properties": {
@@ -154,7 +154,7 @@ def get_tool_definitions():
             "type": "function",
             "function": {
                 "name": "list_events",
-                "description": "List events from a calendar with optional time range and search query",
+                "description": "List events from a calendar with optional time range and search query. Use this when the user asks about calendar events, schedules, meetings, appointments, or what's on their calendar. This is the PRIMARY tool for calendar-related queries.",
                 "parameters": {
                     "type": "object",
                     "properties": {
@@ -189,7 +189,7 @@ def get_tool_definitions():
             "type": "function",
             "function": {
                 "name": "create_event",
-                "description": "Create a new calendar event in Google Calendar. Use this when the user asks to add, create, schedule, or book an event or meeting in their calendar.",
+                "description": "Create a new calendar event in Google Calendar. Use this when the user asks to add, create, schedule, or book an event or meeting in their calendar. This is the PRIMARY tool for creating calendar events.",
                 "parameters": {
                     "type": "object",
                     "properties": {
